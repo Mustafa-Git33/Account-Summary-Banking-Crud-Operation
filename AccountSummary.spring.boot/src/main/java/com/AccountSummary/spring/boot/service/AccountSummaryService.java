@@ -1,11 +1,13 @@
 package com.AccountSummary.spring.boot.service;
 
-import com.AccountSummary.spring.boot.dao.AccountSummaryRepository;
-import com.AccountSummary.spring.boot.entity.AccountEntity;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.AccountSummary.spring.boot.dao.AccountSummaryRepository;
+import com.AccountSummary.spring.boot.entity.AccountEntity;
 
 @Service
 public class AccountSummaryService implements IAccountSummService {
@@ -14,17 +16,17 @@ public class AccountSummaryService implements IAccountSummService {
     private AccountSummaryRepository repository;
 
     @Override
-    public List<AccountEntity> getCustomerId() {
+    public List<AccountEntity> getAllAccounts() {
         return repository.findAll();
     }
 
     @Override
-    public AccountEntity createAccSummData(AccountEntity accSummData) {
-        return repository.save(accSummData);
+    public AccountEntity createAccount(AccountEntity account) {
+        return repository.save(account);
     }
 
     @Override
-    public AccountEntity getCustomerId(String customerId) {
-        return repository.findByCustomerId(customerId).orElse(null);
+    public Optional<AccountEntity> getAccountByCustomerId(String customerId) {
+        return repository.findByCustomerId(customerId);
     }
 }

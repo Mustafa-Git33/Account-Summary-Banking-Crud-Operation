@@ -1,5 +1,6 @@
 package com.AccountSummary.spring.boot.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 
@@ -105,9 +106,9 @@ public class Customer {
 		this.address = address;
 	}
 
-
+	@Column(name = "customer_idCus")
 	private String customerId;
-	private String cif;
+    private String cif;
 	private String fullName;
 	private String dob;
 	private String pan;

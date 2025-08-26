@@ -17,7 +17,7 @@ public class AccountEntity {
     
 	private String accountId;
     private String customerId;
-    private String cif;
+    //private String cif;
     private String accountType;
     private String accountHolderName;
     private String accountNumberMasked;
@@ -27,16 +27,54 @@ public class AccountEntity {
     private String ifscCode;
     private String micrCode;
 
-    @Embedded
-    private Balance balance;
+	
+	  @Embedded
+	  private Balance balance;
+	 
 
     private String status;
     private String openedDate;
     private String lastTransactionDate;
 
-    @Embedded
-    private Customer customer;
+	
+	  @Embedded 
+	  private Customer customer;
+	  
+	  public LinkedAccounts getLinkedAccounts() {
+		return linkedAccounts;
+	}
 
+	  public void setLinkedAccounts(LinkedAccounts linkedAccounts) {
+		  this.linkedAccounts = linkedAccounts;
+	  }
+
+	  public RecentTransactions getRecentTransactions() {
+		  return recentTransactions;
+	  }
+
+	  public void setRecentTransactions(RecentTransactions recentTransactions) {
+		  this.recentTransactions = recentTransactions;
+	  }
+
+	  public Notifications getNotifications() {
+		  return notifications;
+	  }
+
+	  public void setNotifications(Notifications notifications) {
+		  this.notifications = notifications;
+	  }
+
+	  @Embedded
+	  private LinkedAccounts linkedAccounts;
+	  
+	  @Embedded
+	  private RecentTransactions recentTransactions;
+	  
+	  
+	  @Embedded
+	  private Notifications notifications;
+	  
+	 
     public int getId() {
 		return id;
 	}
@@ -61,13 +99,11 @@ public class AccountEntity {
 		this.customerId = customerId;
 	}
 
-	public String getCif() {
-		return cif;
-	}
-
-	public void setCif(String cif) {
-		this.cif = cif;
-	}
+	/*
+	 * public String getCif() { return cif; }
+	 * 
+	 * public void setCif(String cif) { this.cif = cif; }
+	 */
 
 	public String getAccountType() {
 		return accountType;
@@ -133,13 +169,11 @@ public class AccountEntity {
 		this.micrCode = micrCode;
 	}
 
-	public Balance getBalance() {
-		return balance;
-	}
-
-	public void setBalance(Balance balance) {
-		this.balance = balance;
-	}
+	/*
+	 * public Balance getBalance() { return balance; }
+	 * 
+	 * public void setBalance(Balance balance) { this.balance = balance; }
+	 */
 
 	public String getStatus() {
 		return status;
@@ -165,13 +199,11 @@ public class AccountEntity {
 		this.lastTransactionDate = lastTransactionDate;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+	
+	  public Customer getCustomer() { return customer; }
+	  
+	  public void setCustomer(Customer customer) { this.customer = customer; }
+	 
 
 
 

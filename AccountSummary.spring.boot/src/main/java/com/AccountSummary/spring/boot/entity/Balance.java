@@ -9,7 +9,7 @@ public class Balance {
 	    private String current;
 	    private String hold;
 	    private String overdraftLimit;
-	    private String currency;
+	   // private String currency;
 	
 	
 
